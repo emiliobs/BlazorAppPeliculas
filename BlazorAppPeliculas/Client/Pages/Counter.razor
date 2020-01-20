@@ -1,0 +1,16 @@
+﻿@page "/counter"
+
+
+@inherits CaunterBase
+
+
+
+<h1 style="color:@Color">Counter</h1>
+
+<p style=" font-size:@Size;color:@Color;">Current Count: @currentCount</p>
+<p>Singleton Count: @Singleton.Valor</p>
+<p>Transient count: @Transient.Valor</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="IncrementcountJavascript">Increment with J</button>
+

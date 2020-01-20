@@ -1,0 +1,54 @@
+﻿@inject IJSRuntime js;
+
+
+    <div style="display: flex; flex-wrap:wrap; align-items:center">
+        <ListadoGennerico Listado="Peliculas">
+            <HayRegistros Context="pelicula">
+                <PeliculaIndividual Pelicula="pelicula" EliminarPelicula="EliminarPelicula"></PeliculaIndividual>
+            </HayRegistros>
+        </ListadoGennerico>
+
+    </div> 
+
+   
+  
+   
+  
+
+
+
+@code {
+
+
+
+    [Parameter]
+    public List<Pelicula> Peliculas { get; set; }
+
+
+
+    async Task EliminarPelicula(Pelicula pelicula)
+    {
+
+    
+        var confirmado = await js.Confirm($"¿Desea borrar la peílcula {pelicula.Titulo}?");
+
+        if (confirmado)
+        {
+            Peliculas.Remove(pelicula);
+            Console.WriteLine($"Se ha eliminado la película {pelicula.Titulo}");
+        }
+
+
+    }
+
+    
+
+
+
+}
+
+
+
+
+
+

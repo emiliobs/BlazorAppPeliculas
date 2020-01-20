@@ -1,0 +1,39 @@
+﻿@page "/"
+
+@inject IPeliculaRepositorio peliculaRepositorio
+
+
+<div>
+    <h2 class="text-center">Películas</h2>
+    @*<button class="btn btn-primary" @onclick="AgregarPelicula">Agregar Pelicula.</button>*@
+
+    <hr />
+   
+
+    <ListadoPeliculas  Peliculas="Peliculas"></ListadoPeliculas>
+
+
+</div>
+
+@code{
+
+    List<Pelicula> Peliculas;
+
+    ListadoPeliculas listado;
+
+
+    //void AgregarPelicula()
+    //{
+    //    Peliculas.Add(new Pelicula { Id = 4, Lanzamiento = DateTime.Today, Titulo = "Nueva Peliculala", PhotoPath = "hovawart.jpg" });
+    //}
+
+    protected override void OnInitialized()
+    {
+
+
+        Peliculas = peliculaRepositorio.ObtenerPeliculas();
+    }
+
+
+
+}
