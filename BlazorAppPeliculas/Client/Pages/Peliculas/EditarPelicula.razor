@@ -2,9 +2,26 @@
 
 <h3>Editar Peliculas</h3>
 
+<FormularioPelicula Pelicula="Pelicula" OnValidSubmit="Editar"></FormularioPelicula>
+
 @code {
 
     [Parameter]
     public int PeliculaId { get; set; }
+    Pelicula Pelicula = new Pelicula();
 
+    protected override void OnInitialized()
+    {
+        Pelicula = new Pelicula
+        {
+            Id = PeliculaId, Titulo = "with love Blazor",
+
+        };
+    }
+
+
+    private void Editar()
+    {
+        Console.WriteLine("Editando Pelicula.....");
+    }
 }

@@ -3,9 +3,12 @@
 
 <h3>Crear Pelicula</h3>
 
-<button class="btn btn-info" @onclick="Crear">Salvar Pelicula.</button>
+<FormularioPelicula Pelicula="Pelicula" OnValidSubmit="Crear"></FormularioPelicula>
+
 
 @code {
+
+    private Pelicula Pelicula = new Pelicula();
 
     void Crear() {
 
